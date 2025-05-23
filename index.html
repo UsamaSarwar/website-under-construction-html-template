@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    function startCountdown() {
+      const countDownDate = new Date("JAN 01, 2026 17:56:00 GMT+0500").getTime();
+      const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s `;
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("countdown").innerHTML = "LAUNCHED!";
+        }
+      }, 1000);
+    }
+    window.onload = function() {
+      startCountdown();
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 60, density: { enable: true, value_area: 800 } },
+          color: { value: "#000000" },
+          shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+          opacity: { value: 0.6, random: true, anim: { enable: true, speed: 1, opacity_min: 0.2, sync: false } },
+          size: { value: 4, random: true, anim: { enable: true, speed: 2, size_min: 0.5, sync: false } },
+          line_linked: { enable: true, distance: 120, color: "#000000", opacity: 0.3, width: 1 },
+          move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: { enable: true, mode: "grab" },
+            onclick: { enable: true, mode: "push" },
+            ontouch: { enable: true, mode: "push" },
+            resize: true
+          },
+          modes: {
+            grab: { distance: 140, line_linked: { opacity: 0.7 } },
+            push: { particles_nb: 4 }
+          }
+        },
+        retina_detect: true
+      });
+    };
+  </script>
+  <style>
+    body {
+      background-color: #F4D74A;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Verdana', sans-serif;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .background-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 1;
+      z-index: 0;
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+      color: #000000;
+    }
+    .countdown {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://hmstoreuk.com/web.svg" alt="Background SVG" class="background-svg">
+  <div id="particles-js"></div>
+  <div class="content">
+    <h1 class="text-4xl md:text-5xl font-bold">Usama Sarwar</h1>
+    <h2 class="text-2xl md:text-3xl">UNDER CONSTRUCTION</h2>
+    <p class="text-lg md:text-xl">We're crafting an amazing experience for you!</p>
+    <p class="text-md">Launching in: <span id="countdown" class="countdown"></span></p>
+    <p class="text-sm">© 2025 www.usama.dev. All rights reserved.</p>
+  </div>
+</body>
+</html>
